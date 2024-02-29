@@ -15,17 +15,16 @@ LOGame >> cellsPerSide [
 
 { #category : #initialization }
 LOGame >> initialize [
-| sampleCell width height n |
-super initialize.
-n := self cellsPerSide.
-sampleCell := LOCell new.
-width := sampleCell width.
-height := sampleCell height.
-self bounds: (5 @ 5 extent: (width * n) @ (height * n) + (2 * self
-borderWidth)).
-cells := Array2D
-new: n
-tabulate: [ :i :j | self newCellAt: i at: j ]
+
+	| sampleCell width height n |
+	super initialize.
+	n := self cellsPerSide.
+	sampleCell := LOCell new.
+	width := sampleCell width.
+	height := sampleCell height.
+	self bounds:
+		(5 @ 5 extent: width * n @ (height * n) + (2 * self borderWidth)).
+	cells := Array2D new: n tabulate: [ :i :j | self newCellAt: i at: j ]
 ]
 
 { #category : #accessing }
@@ -46,12 +45,9 @@ cell"
 
 { #category : #accessing }
 LOGame >> toggleNeighboursOfCellAt: i at: j [
-i > 1
-ifTrue: [ (cells at: i - 1 at: j) toggleState ].
-i < self cellsPerSide
-ifTrue: [ (cells at: i + 1 at: j) toggleState ].
-j > 1
-ifTrue: [ (cells at: i at: j - 1) toggleState ].
-j < self cellsPerSide
-ifTrue: [ (cells at: i at: j + 1) toggleState ]
+
+	i > 1 ifTrue: [ (cells at: i - 1 at: j) toggleState ].
+	i < self cellsPerSide ifTrue: [ (cells at: i + 1 at: j) toggleState ].
+	j > 1 ifTrue: [ (cells at: i at: j - 1) toggleState ].
+	j < self cellsPerSide ifTrue: [ (cells at: i at: j + 1) toggleState ]
 ]
