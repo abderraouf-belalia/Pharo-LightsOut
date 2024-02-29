@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'mouseAction'
 	],
-	#category : #'PBE-LightsOut'
+	#category : #LightsOut
 }
 
 { #category : #initialization }

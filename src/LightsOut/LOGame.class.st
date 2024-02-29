@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'cells'
 	],
-	#category : #'PBE-LightsOut'
+	#category : #LightsOut
 }
 
 { #category : #accessing }
